@@ -30,6 +30,9 @@ public class MainActivity extends ActionBarActivity {
         myImage.setImageResource(R.drawable.floorimg);
 
         /* Bro is this possible to create dynamic pin image using OnDraw method . myImage.onDraw();*/
+        /* the floorimg and pinimgnew images in the Resources folder */
+
+
 //        myImage.onDraw();
 
 //        @Override
