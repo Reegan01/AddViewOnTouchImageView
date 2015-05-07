@@ -17,11 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends ActionBarActivity {
 
     private TouchImageView myImage;
-    int index = 0;
-    private static int[] images = { R.drawable.nature_1, R.drawable.nature_2, R.drawable.nature_3, R.drawable.nature_4 };
-    RelativeLayout.LayoutParams rparams;
-    Bitmap bitmap;
-    int i = 0;
+
 
 
     @Override
@@ -29,26 +25,28 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myImage = (TouchImageView)findViewById(R.id.myImg);
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pinimgnew);
 
 
-        myImage.setImageResource(R.drawable.nature_1);
+        myImage.setImageResource(R.drawable.floorimg);
 
+        /* Bro is this possible to create dynamic pin image using OnDraw method . myImage.onDraw();*/
+//        myImage.onDraw();
 
-        /* */
-
-        myImage.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x = event.getX();
-                float y = event.getY();
-                Toast.makeText(getBaseContext(), " X value : " + x + " Y value : " + y, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
+//        @Override
+//        protected void onDraw(Canvas canvas) {
+//            super.onDraw(canvas);
+//
+//            Bitmap map = BitmapFactory.decodeResource(getResources(), R.drawable.floorimg);
+//            canvas.drawBitmap(map, xPositionForMap, yPositionForMap, null);
+//
+//            Bitmap marker = BitmapFactory.decodeResource(getResources(), R.drawable.pinimgnew);
+//            canvas.drawBitmap(marker, xPositionFor1stMarker, yPositionFor1stMarker, null);
+//            canvas.drawBitmap(marker, xPositionFor2ndMarker, yPositionFor2ndMarker, null);
+//        }
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
