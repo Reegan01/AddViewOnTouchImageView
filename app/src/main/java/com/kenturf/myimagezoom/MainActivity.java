@@ -1,22 +1,20 @@
 package com.kenturf.myimagezoom;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.method.Touch;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private TouchImageView myImage;
+    TouchImageView touchImageView;
 
 
 
@@ -26,8 +24,21 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         myImage = (TouchImageView)findViewById(R.id.myImg);
 
-
         myImage.setImageResource(R.drawable.floorimg);
+
+
+
+//        myImage.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                float x = v.getX();
+//                float y = v.getY();
+//
+//                Toast.makeText(getBaseContext(),"X value is : " + x + " Y value is : " + y,Toast.LENGTH_SHORT).show();
+//
+//                return false;
+//            }
+//        });
 
         /* Bro is this possible to create dynamic pin image using OnDraw method . myImage.onDraw();*/
         /* the floorimg and pinimgnew images in the Resources folder */
@@ -50,6 +61,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+
+
+    public static void message(Context ctx,String msg,int duration) {
+        Toast.makeText(ctx,msg,duration).show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

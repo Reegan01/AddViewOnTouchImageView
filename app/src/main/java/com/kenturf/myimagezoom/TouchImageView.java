@@ -16,6 +16,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.PointF;
@@ -37,6 +38,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.OverScroller;
 import android.widget.Scroller;
+import android.widget.Toast;
 
 public class TouchImageView extends ImageView {
 	
@@ -401,7 +403,7 @@ public class TouchImageView extends ImageView {
     /**
      * Set zoom parameters equal to another TouchImageView. Including scale, position,
      * and ScaleType.
-     * @param TouchImageView
+     *
      */
     public void setZoom(TouchImageView img) {
     	PointF center = img.getScrollPosition();
@@ -750,6 +752,8 @@ public class TouchImageView extends ImageView {
      */
     private class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pinimgnew);
+
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e)
         {
@@ -763,6 +767,12 @@ public class TouchImageView extends ImageView {
         public void onLongPress(MotionEvent e)
         {
         	performLongClick();
+
+            float x = e.getX();
+            float y = e.getY();
+
+            MainActivity.message(getContext(),"X value is : "+ x + " Y value is : "+ y,Toast.LENGTH_SHORT);
+
         }
 
         @Override
